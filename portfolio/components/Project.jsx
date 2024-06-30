@@ -35,8 +35,6 @@ const Project = () => {
   const khizar = "https://github.com/muhammadkhizar89";
   const huzaifa = "https://github.com/HuzaifaRizwan1231";
 
-  
-
   const project = [
     {
       title: "BakeNest",
@@ -125,58 +123,59 @@ const Project = () => {
         />
       </WavyBackground2>
       <div className="flex flex-wrap relative bottom-20 justify-evenly">
-        {project.map((proj, index) => (
-          <CardContainer className="inter-var w-11/12 mx-auto sm:w-fit bg-slate-200 shadow-white ">
-            <CardBody className="relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-4 border">
-              <CardItem
-                translateZ={20}
-                as="button"
-                className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
-              >
-                <div key={index} className="h-fit w-11/12 px-2 mx-auto rounded-lg shadow-white p-2">
-                  <section
-                    className="h-fit relative p-2"
-                    style={{
-                      backgroundSize: "400% 400%",
-                      backgroundPosition: "99.9995% 50%",
-                    }}
-                  >
-                    <video
-                      className="w-full object-fill h-full rounded-md"
-                    >
-                      <source src={proj.video} type="video/mp4" />
-                    </video>
-                  </section>
-                  <hr />
-                  <div className="h-fit text-white space-y-6">
-                    <div className="w-full h-fit text-2xl sm:text-4xl mt-3 font-bold playwrite">
-                      {proj.title}
-                    </div>
-                    <div className="w-full h-fit text-lg sm:text-lg text-wrap text-justify">
-                      {proj.dec}
-                    </div>
-                    <div className="w-full h-fit flex">
-                      <AnimatedTooltip2 items={proj.tec} />
-                    </div>
-                    <div className="w-full h-fit flex">
-                      <AnimatedTooltip3 items={proj.contributors} />
-                    </div>
-                  </div>
-                  <div className="w-full h-fit flex justify-center items-center gap-12 py-3 mt-2 bg-slate-300/85 text-black">
-                    <a href={proj.code} target="_blank" className="font-semibold">
-                      <CodeIcon className="mr-2" />
-                      Code
-                    </a>
-                    <a href="" target="_blank" className="font-semibold">
-                      <YouTubeIcon className="mr-2" />
-                      Demo Video
-                    </a>
-                  </div>
-                </div>
-              </CardItem>
-            </CardBody>
-          </CardContainer>
-        ))}
+      {project.map((proj, index) => (
+  <CardContainer key={index} className="inter-var w-11/12 mx-auto sm:w-fit bg-slate-200 shadow-white ">
+    <CardBody className="relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-auto sm:w-[30rem] h-auto rounded-xl p-4 border">
+      <CardItem
+        translateZ={20}
+        as="button"
+        className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
+      >
+        <div key={index} className="h-fit w-11/12 px-2 mx-auto rounded-lg shadow-white p-2">
+          <section
+            className="h-fit relative p-2"
+            style={{
+              backgroundSize: "400% 400%",
+              backgroundPosition: "99.9995% 50%",
+            }}
+          >
+            <video
+              className="w-full object-fill h-full rounded-md"
+            >
+              <source src={proj.video} type="video/mp4" />
+            </video>
+          </section>
+          <hr />
+          <div className="h-fit text-white space-y-6">
+            <div className="w-full h-fit text-2xl sm:text-4xl mt-3 font-bold playwrite">
+              {proj.title}
+            </div>
+            <div className="w-full h-fit text-lg sm:text-lg text-wrap text-justify">
+              {proj.dec}
+            </div>
+            <div className="w-full h-fit flex">
+              <AnimatedTooltip2 items={proj.tec} />
+            </div>
+            <div className="w-full h-fit flex">
+              <AnimatedTooltip3 items={proj.contributors} />
+            </div>
+          </div>
+          <div className="w-full h-fit flex justify-center items-center gap-12 py-3 mt-2 bg-slate-300/85 text-black">
+            <a href={proj.code} target="_blank" className="font-semibold">
+              <CodeIcon className="mr-2" />
+              Code
+            </a>
+            <a href="" target="_blank" className="font-semibold">
+              <YouTubeIcon className="mr-2" />
+              Demo Video
+            </a>
+          </div>
+        </div>
+      </CardItem>
+    </CardBody>
+  </CardContainer>
+))}
+
       </div>
       <div className="flex flex-col items-center justify-center text-white text-xl w-full h-60">
         <p className="font-semibold text-xl sm:text-3xl w-fit mt-8 h-fit p-3 bg-blue-500/85 rounded-md">

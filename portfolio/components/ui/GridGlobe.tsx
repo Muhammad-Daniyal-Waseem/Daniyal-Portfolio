@@ -471,9 +471,9 @@ export function GlobeDemo() {
               className="border-2 border-white p-2 w-14 h-14 rounded-full mr-5 object-cover"
             />
             <span className="text-center sm:text-2xl md:text-5xl font-bold text-white">
-              Let's&nbsp;work&nbsp;
+              Let's work 
             </span>
-            <span className="text-center sm:text-2xl md:text-5xl font-bold text-blue-500">
+            <span className="text-center sm:text-2xl md:text-5xl font-bold text-blue-500 ml-3">
               together
             </span>
           </motion.div>
