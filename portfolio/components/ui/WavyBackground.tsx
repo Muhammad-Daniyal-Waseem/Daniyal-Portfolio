@@ -1,4 +1,3 @@
-"use client";
 import { cn } from "@/utils/cn";
 import React, { useEffect, useRef, useState } from "react";
 import { createNoise3D } from "simplex-noise";
@@ -35,6 +34,7 @@ export const WavyBackground = ({
     ctx: any,
     canvas: any;
   const canvasRef = useRef<HTMLCanvasElement>(null);
+
   const getSpeed = () => {
     switch (speed) {
       case "slow":
@@ -50,12 +50,12 @@ export const WavyBackground = ({
     canvas = canvasRef.current;
     ctx = canvas.getContext("2d");
     w = ctx.canvas.width = window.outerWidth;
-    h = ctx.canvas.height = window.innerWidth * 0.2; // Set height to 60% of the window's outer width
+    h = ctx.canvas.height = window.innerWidth * 0.2; // Set height to 20% of the window's inner width
     ctx.filter = `blur(${blur}px)`;
     nt = 0;
     window.onresize = function () {
       w = ctx.canvas.width = window.outerWidth;
-      h = ctx.canvas.height = window.innerWidth * 0.2; // Set height to 60% of the window's outer width
+      h = ctx.canvas.height = window.innerWidth * 0.2; // Set height to 20% of the window's inner width
       ctx.filter = `blur(${blur}px)`;
     };
     render();
@@ -97,11 +97,11 @@ export const WavyBackground = ({
     return () => {
       cancelAnimationFrame(animationId);
     };
-  }, []);
+  }, [init, animationId]); // Include init and animationId in the dependency array
 
   const [isSafari, setIsSafari] = useState(false);
   useEffect(() => {
-    // I'm sorry but i have got to support it on safari.
+    // Check for Safari browser
     setIsSafari(
       typeof window !== "undefined" &&
         navigator.userAgent.includes("Safari") &&
@@ -110,12 +110,7 @@ export const WavyBackground = ({
   }, []);
 
   return (
-    <div
-      className={cn(
-        " h-fit flex flex-col sm:p-0",
-        containerClassName
-      )}
-    >
+    <div className={cn("h-fit flex flex-col sm:p-0", containerClassName)}>
       <canvas
         className="inset-0 z-0 sm:pt-0"
         ref={canvasRef}
@@ -124,7 +119,13 @@ export const WavyBackground = ({
           ...(isSafari ? { filter: `blur(${blur}px)` } : {}),
         }}
       ></canvas>
-      <div className={cn("relative z-10 h-fit w-fit pt-5 sm:pt-7 md:pt-10 lg:pt-3 xl:pt-0", className)} {...props}>
+      <div
+        className={cn(
+          "relative z-10 h-fit w-fit pt-5 sm:pt-7 md:pt-10 lg:pt-3 xl:pt-0",
+          className
+        )}
+        {...props}
+      >
         {children}
       </div>
     </div>

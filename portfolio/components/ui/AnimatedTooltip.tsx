@@ -1,5 +1,3 @@
-"use client"
-
 import Image from "next/image";
 import React, { useState, useEffect, useRef } from "react";
 import {
@@ -8,7 +6,6 @@ import {
   useMotionValue,
   useSpring,
   useTransform,
-  color,
 } from "framer-motion";
 
 export const AnimatedTooltip = ({
@@ -47,13 +44,14 @@ export const AnimatedTooltip = ({
       },
     );
 
-    if (componentRef.current) {
-      observer.observe(componentRef.current);
+    const currentRef = componentRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (componentRef.current) {
-        observer.unobserve(componentRef.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, []);
@@ -119,9 +117,8 @@ export const AnimatedTooltip = ({
             width={100}
             src={item.image}
             alt={item.name}
-            style={{color:"transparent"}}
-             className=" bg-black/40 border-slate-600/85 border-2 object-cover !m-0  p-1 sm:p-2 md:p-3 object-top rounded-full h-custom-height w-custom-width sm:h-12 sm:w-12 md:h-16 md:w-16 lg:h-24 lg:w-24 group-hover:scale-105 group-hover:z-30 relative transition duration-500"
-/>
+            className="bg-black/40 border-slate-600/85 border-2 object-cover !m-0 p-1 sm:p-2 md:p-3 object-top rounded-full h-custom-height w-custom-width sm:h-12 sm:w-12 md:h-16 md:w-16 lg:h-24 lg:w-24 group-hover:scale-105 group-hover:z-30 relative transition duration-500"
+          />
         </motion.div>
       ))}
     </div>

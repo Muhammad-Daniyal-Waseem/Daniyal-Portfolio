@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/utils/cn";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 
 export const InfiniteMovingCards = ({
   items,
@@ -20,14 +20,10 @@ export const InfiniteMovingCards = ({
   pauseOnHover?: boolean;
   className?: string;
 }) => {
-  const containerRef = React.useRef<HTMLDivElement>(null);
-  const scrollerRef = React.useRef<HTMLUListElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const scrollerRef = useRef<HTMLUListElement>(null);
 
-  useEffect(() => {
-    addAnimation();
-  }, []);
-  const [start, setStart] = useState(false);
-  function addAnimation() {
+  const addAnimation = useCallback(() => {
     if (containerRef.current && scrollerRef.current) {
       const scrollerContent = Array.from(scrollerRef.current.children);
 
@@ -42,7 +38,14 @@ export const InfiniteMovingCards = ({
       getSpeed();
       setStart(true);
     }
-  }
+  }, [direction, speed]);
+
+  useEffect(() => {
+    addAnimation();
+  }, [addAnimation]);
+
+  const [start, setStart] = useState(false);
+
   const getDirection = () => {
     if (containerRef.current) {
       if (direction === "left") {
@@ -58,6 +61,7 @@ export const InfiniteMovingCards = ({
       }
     }
   };
+
   const getSpeed = () => {
     if (containerRef.current) {
       if (speed === "fast") {
@@ -69,6 +73,7 @@ export const InfiniteMovingCards = ({
       }
     }
   };
+
   return (
     <div
       ref={containerRef}
@@ -85,19 +90,15 @@ export const InfiniteMovingCards = ({
           pauseOnHover && "hover:[animation-play-state:paused]"
         )}
       >
-        {items.map((item, idx) => (
+        {items.map((item) => (
           <li
-            className=" relative rounded-2xl border border-b-0 flex-shrink-0 border-slate-700"
-            // style={{
-            //   background:
-            //     "linear-gradient(180deg, var(--slate-800), var(--slate-900)",
-            // }}
             key={item.name}
+            className=" relative rounded-2xl border border-b-0 flex-shrink-0 border-slate-700"
           >
             <blockquote>
-                  <span className=" text-lg sm:text-xl  md:text-3xl lg:text-5xl xl:text-7xl leading-[1.6] text-gray-400 font-bold  text-center  gap-1">
-                    {item.name}
-                </span>
+              <span className=" text-lg sm:text-xl  md:text-3xl lg:text-5xl xl:text-7xl leading-[1.6] text-gray-400 font-bold  text-center  gap-1">
+                {item.name}
+              </span>
             </blockquote>
           </li>
         ))}

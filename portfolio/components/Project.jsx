@@ -5,7 +5,7 @@ import CodeIcon from '@mui/icons-material/Code';
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import { WavyBackground2 } from "./ui/WavyBackground2";
-import { TypewriterEffectSmooth } from "./ui/TypewriterEffect";
+import { TypewriterEffect } from "./ui/TypewriterEffect";
 import Image from 'next/image';
 import reactLogo from "../public/Logos/reactjs.png";
 import reduxLogo from "../public/Logos/ReactRedux.png";
@@ -35,42 +35,7 @@ const Project = () => {
   const khizar = "https://github.com/muhammadkhizar89";
   const huzaifa = "https://github.com/HuzaifaRizwan1231";
 
-  useEffect(() => {
-    const currentVideoRefs = videoRefs.current;
-
-    const observers = currentVideoRefs.map((video) => {
-      if (!video) return null;
-
-      const observerOptions = {
-        root: null, // Use the viewport as the root
-        rootMargin: '0px',
-        threshold: 0.5, // 50% of the video section must be visible
-      };
-
-      const observerCallback = (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            video.play();
-          } else {
-            video.pause();
-          }
-        });
-      };
-
-      const observer = new IntersectionObserver(observerCallback, observerOptions);
-      observer.observe(video);
-
-      return observer;
-    });
-
-    return () => {
-      observers.forEach((observer, index) => {
-        if (observer && currentVideoRefs[index]) {
-          observer.unobserve(currentVideoRefs[index]);
-        }
-      });
-    };
-  }, []);
+  
 
   const project = [
     {
@@ -148,7 +113,7 @@ const Project = () => {
           typeof window !== 'undefined' && window.outerWidth < 360 ? "pt-10" : ""
         }`}
       >
-        <TypewriterEffectSmooth
+        <TypewriterEffect
           className={` ${
             window.outerWidth > 450 && window.outerWidth < 640 ? "mb-8" : ""
           } w-fit text-white font-bold inter-var ${
@@ -177,7 +142,6 @@ const Project = () => {
                     }}
                   >
                     <video
-                      ref={(el) => (videoRefs.current[index] = el)}
                       className="w-full object-fill h-full rounded-md"
                     >
                       <source src={proj.video} type="video/mp4" />

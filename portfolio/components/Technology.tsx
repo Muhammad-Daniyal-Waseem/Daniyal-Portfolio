@@ -7,7 +7,7 @@ import Database from './Database'
 import ProgrammingLanguages from './ProgrammingLanguages'
 import ToolAndLibrary from './ToolAndLibrary'
 import { WavyBackground } from "./ui/WavyBackground";
-import { TypewriterEffectSmooth } from "./ui/TypewriterEffect";
+import {   TypewriterEffect } from "./ui/TypewriterEffect";
 
 
 
@@ -58,10 +58,10 @@ const Technology = () => {
     <div  className='target-section' id='Tech'>
  <WavyBackground className={`w-full h-full flex flex-col mb-5 sm:mb-14 md:mb-7 justify-center items-center bottom-24 sm:bottom-32 md:bottom-40 xl:bottom-48 ${window.outerWidth<360?"pt-10":""}`}>  
 
-    <TypewriterEffectSmooth className={`w-fit text-white font-bold inter-var ${window.outerWidth<=370?"mt-0":""}  ${window.outerWidth>370&&window.outerWidth<451?"mt-5":""}`} words={words1}/>      
+    <TypewriterEffect className={`w-fit text-white font-bold inter-var ${window.outerWidth<=370?"mt-0":""}  ${window.outerWidth>370&&window.outerWidth<451?"mt-5":""}`} words={words1}/>      
     
     
-    <TypewriterEffectSmooth className=" w-fit  text-white font-normal inter-var" words={words2}/>      
+    <TypewriterEffect className=" w-fit  text-white font-normal inter-var" words={words2}/>      
     </WavyBackground>
     
       <Frontend></Frontend>
