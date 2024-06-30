@@ -470,12 +470,13 @@ export function GlobeDemo() {
               width={100}
               className="border-2 border-white p-2 w-14 h-14 rounded-full mr-5 object-cover"
             />
-            <span className="text-center sm:text-2xl md:text-5xl font-bold text-white">
-              Let's work 
-            </span>
-            <span className="text-center sm:text-2xl md:text-5xl font-bold text-blue-500 ml-3">
-              together
-            </span>
+         <span className="text-center sm:text-2xl md:text-5xl font-bold text-white">
+  Let&apos;s work 
+</span>
+<span className="text-center sm:text-2xl md:text-5xl font-bold text-blue-500 ml-3">
+  together
+</span>
+
           </motion.div>
           <motion.div
             className={`text-white flex justify-center items-center relative sm:top-14 md:top-44 z-30 flex-col ${
