@@ -33,10 +33,11 @@ const About = () => {
   return (
     <div id="About" className="h-fit w-full sm:w-3/4 mx-auto">
       <div className="mx-auto w-full h-full">
-        <ContainerScroll>
+        <ContainerScroll titleComponent={<h1 className="text-xl sm:text-2xl md:text-5xl lg:text-6xl font-semibold"></h1>}>
           <div className="flex justify-center items-center gap-2 text-white h-fit mb-2">
             <PersonIcon style={iconSize}></PersonIcon>
             <h1 className="text-xl sm:text-2xl md:text-5xl lg:text-6xl font-semibold">About Me</h1>
+            {/* Remove the redundant h1 element here */}
           </div>
           <div className="flex gap-4 w-full">
             <span className={`text-wrap text-justify sm:text-base ${window.outerWidth < 640 ? "text-sm" : ""} ${window.outerWidth < 350 ? "text-xs" : ""}`}>
@@ -60,3 +61,4 @@ const About = () => {
 };
 
 export default About;
+
