@@ -1,5 +1,4 @@
-import Image from "next/image";
-import Hero from "../components/About";
+import About from "../components/About";
 import Introduction from "../components/Introduction";
 import Technology from "../components/Technology";
 import Project from "../components/Project";
@@ -12,7 +11,7 @@ export default function Home() {
     <div className="w-full overflow-x-hidden">
 <Navbar></Navbar>
 <Introduction></Introduction>
-      <Hero></Hero>
+      <About></About>
       
       <Technology></Technology>
       
