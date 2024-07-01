@@ -3,11 +3,13 @@ import { useEffect, useState } from "react";
 import { ContainerScroll } from "./ui/ContainerScroll";
 import PersonIcon from '@mui/icons-material/Person';
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 const About = () => {
   const [iconSize, setIconSize] = useState({ fontSize: "20px" }); // Default size
 
+
+  useEffect(() => {
+    
   const setSize = () => {
     if (window.outerWidth >= 1024) {
       setIconSize({ fontSize: "60px" });
@@ -19,9 +21,7 @@ const About = () => {
       setIconSize({ fontSize: "28px" });
     }
   };
-
-  useEffect(() => {
-    setSize(); // Set the size on component mount
+    // Set the size on component mount
     window.addEventListener('resize', setSize); // Update size on window resize
 
     // Cleanup event listener on component unmount
