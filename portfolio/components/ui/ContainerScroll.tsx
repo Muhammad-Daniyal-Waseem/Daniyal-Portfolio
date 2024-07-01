@@ -16,6 +16,7 @@ export const ContainerScroll = ({
   const [isMobile, setIsMobile] = React.useState(false);
 
   React.useEffect(() => {
+    if(typeof (window) !== "undefined"){
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 768);
     };
@@ -23,7 +24,7 @@ export const ContainerScroll = ({
     window.addEventListener("resize", checkMobile);
     return () => {
       window.removeEventListener("resize", checkMobile);
-    };
+    };}
   }, []);
 
   const scaleDimensions = () => {

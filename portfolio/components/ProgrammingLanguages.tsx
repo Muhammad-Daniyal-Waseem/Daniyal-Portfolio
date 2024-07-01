@@ -30,6 +30,8 @@ const people = [
 const ProgrammingLanguages = () => {
   const [textSize,settextSize]=useState<string>("");
   useEffect(() => {
+    if(typeof (window) !== "undefined")
+      {
     const handleResize = () => {
       if (window.outerWidth <= 300) {
         settextSize("text-sm");
@@ -43,7 +45,7 @@ const ProgrammingLanguages = () => {
 
     return () => {
       window.removeEventListener("resize", handleResize);
-    };
+    };}
   }, []);
   return (
     <Button className="w-full" duration={3000}>

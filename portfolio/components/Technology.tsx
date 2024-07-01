@@ -16,12 +16,15 @@ const Technology = () => {
 
   useEffect(() => {
     // Check window.outerWidth on the client side
+    if(typeof (window) !== "undefined")
+      {
     const updateTextSizeClass = () => {
       if (window.outerWidth < 450) {
         setTextSizeClass("text-small-custom");
       } else {
         setTextSizeClass("text-base text-center");
       }
+    
     };
    updateTextSizeClass();
 
@@ -31,7 +34,7 @@ const Technology = () => {
     // Cleanup event listener on unmount
     return () => {
       window.removeEventListener("resize", updateTextSizeClass);
-    };
+    };}
   }, []);
 
 
@@ -56,9 +59,9 @@ const Technology = () => {
   return (
     
     <div  className='target-section' id='Tech'>
- <WavyBackground className={`w-full h-full flex flex-col mb-5 sm:mb-14 md:mb-7 justify-center items-center bottom-24 sm:bottom-32 md:bottom-40 xl:bottom-48 ${window.outerWidth<360?"pt-10":""}`}>  
+ <WavyBackground className={`w-full h-full flex flex-col mb-5 sm:mb-14 md:mb-7 justify-center items-center bottom-24 sm:bottom-32 md:bottom-40 xl:bottom-48 ${typeof (window) !== "undefined"&&window.outerWidth<360?"pt-10":""}`}>  
 
-    <TypewriterEffect className={`w-fit text-white font-bold inter-var ${window.outerWidth<=370?"mt-0":""}  ${window.outerWidth>370&&window.outerWidth<451?"mt-5":""}`} words={words1}/>      
+    <TypewriterEffect className={`w-fit text-white font-bold inter-var ${typeof (window) !== "undefined"&&window.outerWidth<=370?"mt-0":""}  ${typeof (window) !== "undefined"&&window.outerWidth>370&&window.outerWidth<451?"mt-5":""}`} words={words1}/>      
     
     
     <TypewriterEffect className=" w-fit  text-white font-normal inter-var" words={words2}/>      

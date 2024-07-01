@@ -47,18 +47,20 @@ export const WavyBackground = ({
   };
 
   const init = () => {
-    canvas = canvasRef.current;
-    ctx = canvas.getContext("2d");
-    w = ctx.canvas.width = window.outerWidth;
-    h = ctx.canvas.height = window.innerWidth * 0.2; // Set height to 60% of the window's outer width
-    ctx.filter = `blur(${blur}px)`;
-    nt = 0;
-    window.onresize = function () {
+    if (typeof window !== "undefined") {
+      canvas = canvasRef.current;
+      ctx = canvas.getContext("2d");
       w = ctx.canvas.width = window.outerWidth;
-      h = ctx.canvas.height = window.innerWidth * 0.2; // Set height to 60% of the window's outer width
+      h = ctx.canvas.height = window.innerWidth * 0.2; // Set height to 20% of the window's outer width
       ctx.filter = `blur(${blur}px)`;
-    };
-    render();
+      nt = 0;
+      window.onresize = function () {
+        w = ctx.canvas.width = window.outerWidth;
+        h = ctx.canvas.height = window.innerWidth * 0.2; // Set height to 20% of the window's outer width
+        ctx.filter = `blur(${blur}px)`;
+      };
+      render();
+    }
   };
 
   const waveColors = colors ?? [
@@ -101,12 +103,13 @@ export const WavyBackground = ({
 
   const [isSafari, setIsSafari] = useState(false);
   useEffect(() => {
-    // I'm sorry but i have got to support it on safari.
-    setIsSafari(
-      typeof window !== "undefined" &&
+    if (typeof window !== "undefined") {
+      // I'm sorry but i have got to support it on safari.
+      setIsSafari(
         navigator.userAgent.includes("Safari") &&
         !navigator.userAgent.includes("Chrome")
-    );
+      );
+    }
   }, []);
 
   return (

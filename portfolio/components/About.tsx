@@ -7,9 +7,6 @@ import { motion } from "framer-motion";
 const About = () => {
   const [iconSize, setIconSize] = useState({ fontSize: "20px" }); // Default size
 
-
-  useEffect(() => {
-    
   const setSize = () => {
     if (window.outerWidth >= 1024) {
       setIconSize({ fontSize: "60px" });
@@ -21,6 +18,9 @@ const About = () => {
       setIconSize({ fontSize: "28px" });
     }
   };
+  useEffect(() => {
+    setSize();
+
     // Set the size on component mount
     window.addEventListener('resize', setSize); // Update size on window resize
 

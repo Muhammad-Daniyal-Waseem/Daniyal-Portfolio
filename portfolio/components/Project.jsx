@@ -113,7 +113,7 @@ const Project = () => {
       >
         <TypewriterEffect
           className={` ${
-            window.outerWidth > 450 && window.outerWidth < 640 ? "mb-8" : ""
+            typeof (window) !== "undefined"&& window.outerWidth > 450 && window.outerWidth < 640 ? "mb-8" : ""
           } w-fit text-white font-bold inter-var ${
             typeof window !== 'undefined' && window.outerWidth <= 370 ? "mt-0" : ""
           } ${

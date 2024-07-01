@@ -35,6 +35,7 @@ export const WavyBackground2 = ({
     ctx: any,
     canvas: any;
   const canvasRef = useRef<HTMLCanvasElement>(null);
+
   const getSpeed = () => {
     switch (speed) {
       case "slow":
@@ -47,18 +48,20 @@ export const WavyBackground2 = ({
   };
 
   const init = () => {
-    canvas = canvasRef.current;
-    ctx = canvas.getContext("2d");
-    w = ctx.canvas.width = window.outerWidth;
-    h = ctx.canvas.height = window.innerWidth * 0.15; // Set height to 60% of the window's outer width
-    ctx.filter = `blur(${blur}px)`;
-    nt = 0;
-    window.onresize = function () {
+    if (typeof window !== "undefined") {
+      canvas = canvasRef.current;
+      ctx = canvas.getContext("2d");
       w = ctx.canvas.width = window.outerWidth;
-      h = ctx.canvas.height = window.innerWidth * 0.15; // Set height to 60% of the window's outer width
+      h = ctx.canvas.height = window.innerWidth * 0.15; // Set height to 15% of the window's outer width
       ctx.filter = `blur(${blur}px)`;
-    };
-    render();
+      nt = 0;
+      window.onresize = function () {
+        w = ctx.canvas.width = window.outerWidth;
+        h = ctx.canvas.height = window.innerWidth * 0.15; // Set height to 15% of the window's outer width
+        ctx.filter = `blur(${blur}px)`;
+      };
+      render();
+    }
   };
 
   const waveColors = colors ?? [
@@ -68,6 +71,7 @@ export const WavyBackground2 = ({
     "#e879f9",
     "#22d3ee",
   ];
+
   const drawWave = (n: number) => {
     nt += getSpeed();
     for (i = 0; i < n; i++) {
@@ -93,20 +97,23 @@ export const WavyBackground2 = ({
   };
 
   useEffect(() => {
-    init();
-    return () => {
-      cancelAnimationFrame(animationId);
-    };
+    if (typeof window !== "undefined") {
+      init();
+      return () => {
+        cancelAnimationFrame(animationId);
+      };
+    }
   }, []);
 
   const [isSafari, setIsSafari] = useState(false);
   useEffect(() => {
-    // I'm sorry but i have got to support it on safari.
-    setIsSafari(
-      typeof window !== "undefined" &&
+    if (typeof window !== "undefined") {
+      // I'm sorry but I have got to support it on safari.
+      setIsSafari(
         navigator.userAgent.includes("Safari") &&
         !navigator.userAgent.includes("Chrome")
-    );
+      );
+    }
   }, []);
 
   return (

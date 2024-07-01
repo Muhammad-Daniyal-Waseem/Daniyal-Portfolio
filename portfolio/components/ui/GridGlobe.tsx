@@ -480,8 +480,7 @@ export function GlobeDemo() {
           </motion.div>
           <motion.div
             className={`text-white flex justify-center items-center relative sm:top-14 md:top-44 z-30 flex-col ${
-              window.outerWidth < 640 ? " top-6" : ""
-            }`}
+              typeof (window) !== "undefined"&&window.outerWidth< 640 ? " top-6" : ""}`}
             initial={{
               opacity: 0,
               y: 50,
@@ -494,7 +493,7 @@ export function GlobeDemo() {
               duration: 1.5,
             }}
           >
-            <div className={`flex gap-28 ${window.outerWidth < 640 ? "" : ""}`}>
+            <div className={`flex gap-28 ${typeof (window) !== "undefined"&&window.outerWidth < 640 ? "" : ""}`}>
               <a
                 href="https://github.com/Muhammad-Daniyal-Waseem"
                 target="_blank"
@@ -514,7 +513,7 @@ export function GlobeDemo() {
             </div>
             <div
               className={`flex gap-28 md:mt-10 sm:mt-3 ${
-                window.outerWidth < 640 ? " mt-4" : ""
+                typeof (window) !== "undefined"&& window.outerWidth < 640 ? " mt-4" : ""
               }`}
             >
               <a
@@ -536,7 +535,7 @@ export function GlobeDemo() {
             </div>
             <div
               className={`flex justify-center w-screen flex-wrap  items-center gap-6 sm:gap-28 md:mt-10 sm:mt-5 ${
-                window.outerWidth < 640 ? " mt-4" : ""
+                typeof (window) !== "undefined"&&window.outerWidth < 640 ? " mt-4" : ""
               }`}
             >
               <a
@@ -573,7 +572,7 @@ export function GlobeDemo() {
       <div className="flex justify-center items-center flex-wrap w-screen h-14 bg-blue-700">
         <p
           className={`text-wrap text-center tracking-wider  ${
-            window.outerWidth < 640 ? " text-sm" : ""
+            typeof (window) !== "undefined"&&window.outerWidth < 640 ? " text-sm" : ""
           } sm:text-base md:text-xl text-white font-bold `}
         >
           &copy; MUHAMMAD DANIYAL WASEEM . All RIGHTS RESERVED.
