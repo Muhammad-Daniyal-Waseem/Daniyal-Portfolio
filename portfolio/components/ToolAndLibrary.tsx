@@ -14,31 +14,31 @@ const people = [
     id: 1,
     name: "Aceternity UI",
     designation: "UI Library",
-    image: aceternityui,
+    image: aceternityui.src,
   },
   {
     id: 2,
     name: "MUI",
     designation: "UI Library",
-    image: mui,
+    image: mui.src,
   },
   {
     id: 3,
     name: "Framer Motion",
     designation: "Animation Library",
-    image: framermotion,
+    image: framermotion.src,
   },
   {
     id: 4,
     name: "Git",
     designation: "Version Control",
-    image: git,
+    image: git.src,
   },
   {
     id: 5,
     name: "Vercel",
     designation: "Deployment Platform",
-    image: vercel,
+    image: vercel.src,
   },
 ];
 

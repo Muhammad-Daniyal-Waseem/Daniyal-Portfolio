@@ -12,19 +12,19 @@ const people = [
     id: 1,
     name: "MySQL",
     designation: "Database Technology",
-    image: mysql,
+    image: mysql.src,
   },
   {
     id: 2,
     name: "SQLServer",
     designation: "Database Technology",
-    image: sqlserver,
+    image: sqlserver.src,
   },
   {
     id: 3,
     name: "MongoDB",
     designation: "Database Technology",
-    image: mongoDB,
+    image: mongoDB.src,
   },
 ];
 

@@ -12,19 +12,19 @@ const people = [
     id: 1,
     name: "C++",
     designation: "Programming Language",
-    image: Cplusplus,
+    image: Cplusplus.src,
   },
   {
     id: 2,
     name: "Java",
     designation: "Programming Language",
-    image: Java,
+    image: Java.src,
   },
   {
     id: 3,
     name: "JavaScript",
     designation: "Programming Language",
-    image: javascript,
+    image: javascript.src,
   },
 ];
 

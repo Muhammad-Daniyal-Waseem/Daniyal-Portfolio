@@ -12,19 +12,19 @@ const people = [
     id: 1,
     name: "ExpressJs",
     designation: "Backend Framework",
-    image: expressjs,
+    image: expressjs.src, // Corrected type
   },
   {
     id: 2,
     name: "NodeJs",
     designation: "JavaScript Runtime",
-    image: node,
+    image: node.src, // Corrected type
   },
   {
     id: 3,
     name: "SpringBoot",
     designation: "Java Framework",
-    image: springboot,
+    image: springboot.src, // Corrected type
   },
 ];
 
