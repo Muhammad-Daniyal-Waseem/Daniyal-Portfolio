@@ -1,3 +1,4 @@
+"use client"
 import About from "../components/About";
 import Introduction from "../components/Introduction";
 import Technology from "../components/Technology";
