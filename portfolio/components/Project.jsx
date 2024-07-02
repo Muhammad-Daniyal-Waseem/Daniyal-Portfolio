@@ -99,7 +99,11 @@ const Project = () => {
 
   const words1 = [
     {
-      text: "Recent Projects",
+      text: "Recent",
+      className: "text-white dark:text-blue-500 text-xl md:text-2xl lg:text-5xl ",
+    },
+    {
+      text: "Projects",
       className: "text-white dark:text-blue-500 text-xl md:text-2xl lg:text-5xl ",
     },
   ];
@@ -129,7 +133,7 @@ const Project = () => {
       <CardItem
         translateZ={20}
         as="button"
-        className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
+        className="px-4 py-2 rounded-xl bg-black  text-white text-xs font-bold"
       >
         <div key={index} className="h-fit w-11/12 px-2 mx-auto rounded-lg shadow-white p-2">
           <section
@@ -177,7 +181,7 @@ const Project = () => {
 ))}
 
       </div>
-      <div className="flex flex-col items-center justify-center text-white text-xl w-full h-60">
+      <div className="flex flex-col items-center  text-white text-xl w-full h-60 ">
         <p className="font-semibold text-xl sm:text-3xl w-fit mt-8 h-fit p-3 bg-blue-500/85 rounded-md">
           View More
         </p>

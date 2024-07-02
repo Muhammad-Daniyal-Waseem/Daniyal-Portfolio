@@ -118,7 +118,7 @@ export const AnimatedTooltip = ({
             width={100}
             src={item.image}
             alt={item.name}
-            className="bg-black/40 border-slate-600/85 border-2 object-cover !m-0 p-1 sm:p-2 md:p-3 object-top rounded-full h-custom-height w-custom-width sm:h-12 sm:w-12 md:h-16 md:w-16 lg:h-24 lg:w-24 group-hover:scale-105 group-hover:z-30 relative transition duration-500"
+            className={`bg-black/40 border-slate-600/85 border-2 object-cover !m-0 p-1 sm:p-2 md:p-3 object-top rounded-full ${window.outerWidth<=300?"h-custom-small-height w-custom-small-width":"h-custom-height w-custom-width "} sm:h-14 sm:w-14 md:h-16 md:w-16 lg:h-24 lg:w-24 group-hover:scale-105 group-hover:z-30 relative transition duration-500`}
           />
         </motion.div>
       ))}

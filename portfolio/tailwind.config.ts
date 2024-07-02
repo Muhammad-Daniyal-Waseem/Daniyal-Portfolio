@@ -11,10 +11,12 @@ const config: Config = {
     extend: {
 
       height: {
-        'custom-height': '30px',  // Example custom height
+        'custom-height': '40px',  // Example custom height
+        'custom-small-height': '30px',  // Example custom height
       },
       width: {
-        'custom-width': '30px',   // Example custom width
+        'custom-width': '40px',   // Example custom width
+        'custom-small-width': '30px',   // Example custom width
       },
 
       fontSize: {

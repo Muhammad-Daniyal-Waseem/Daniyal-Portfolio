@@ -12,6 +12,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import GroupWorkIcon from "@mui/icons-material/GroupWork";
 import Image from 'next/image';
 
+
 const World = dynamic(() => import("./Globe").then((m) => m.World), {
   ssr: false,
 });
@@ -403,23 +404,27 @@ export function GlobeDemo() {
     },
   ];
 
-
+  const [windowwidth, setwindowwidth] = useState(0);
   const [iconSize, setIconSize] = useState({ fontSize: "20px" }); // Default size
   const setSize = () => {
-    if (typeof window !== "undefined") {
-      if (window.outerWidth >= 1024) {
-        setIconSize({ fontSize: "80px" });
-      } else if (window.outerWidth >= 768 && window.outerWidth < 1024) {
-        setIconSize({ fontSize: "60px" });
-      } else if (window.outerWidth >= 640 && window.outerWidth < 768) {
-        setIconSize({ fontSize: "50px" }); // Default size for smaller screens
-      } else {
-        setIconSize({ fontSize: "40px" }); // Default size for smaller screens
-      }
+    if (window.outerWidth>= 1024) {
+      setIconSize({ fontSize: "80px" });
+      return;
+    } else if (window.outerWidth >= 768 && window.outerWidth < 1024) {
+      setIconSize({ fontSize: "60px" });
+      return;
+    } else if (window.outerWidth >= 640 && window.outerWidth < 768) {
+      setIconSize({ fontSize: "50px" }); // Default size for smaller screens
+      return;
+    } else {
+      setIconSize({ fontSize: "40px" }); // Default size for smaller screens
+      return;
     }
   };
 
   useEffect(() => {
+    setwindowwidth(window.outerWidth);
+
     setSize(); // Set the size on component mount
     window.addEventListener("resize", setSize); // Update size on window resize
 
@@ -433,12 +438,12 @@ export function GlobeDemo() {
     <>
       <hr
         className={`mx-auto w-5/6 border-t-2 border-blue-950 relative  sm:top-24 md:top-40 ${
-          typeof window !== "undefined" && window.outerWidth < 640 ? "top-16" : ""
+           windowwidth < 640 ? "top-16" : ""
         }`}
       />
       <GroupWorkIcon
         className={`relative md:mt-3  lg:mt-0 sm:top-16 md:top-28 mt-2 sm:left-24 md:left-40 z-20 text-white ${
-          typeof window !== "undefined" && window.outerWidth < 640 ? "top-9 left-16" : ""
+          windowwidth < 640 ? "top-9 left-16" : " "
         }`}
         style={iconSize}
       />
@@ -446,7 +451,7 @@ export function GlobeDemo() {
       <div className="flex flex-row items-center justify-center pt-20 h-screen md:h-auto dark:bg-black  bg-transparent relative w-full">
         <div
           className={`max-w-7xl mx-auto w-full relative overflow-hidden h-full ${
-            typeof window !== "undefined" && window.outerWidth < 640 ? "pt-4" : ""
+            windowwidth< 640 ? "pt-4" : ""
           } md:h-[40rem] px-4`}
         >
           <motion.div
@@ -462,7 +467,7 @@ export function GlobeDemo() {
               duration: 1.5,
             }}
             className={`div flex items-center justify-center z-40  relative md:top-20  ${
-              typeof window !== "undefined" && window.outerWidth < 640 ? " bottom-4" : ""
+              windowwidth < 640 ? " bottom-4" : ""
             }`}
           >
             <Image
@@ -472,17 +477,17 @@ export function GlobeDemo() {
               width={100}
               className="border-2 border-white p-2 w-14 h-14 rounded-full mr-5 object-cover"
             />
-            <span className="text-center sm:text-2xl md:text-5xl font-bold text-white">
-              Let&apos;s work 
-            </span>
-            <span className="text-center sm:text-2xl md:text-5xl font-bold text-blue-500 ml-3">
-              together
-            </span>
+         <span className="text-center sm:text-2xl md:text-5xl font-bold text-white">
+  Let&apos;s work 
+</span>
+<span className="text-center sm:text-2xl md:text-5xl font-bold text-blue-500 ml-3">
+  together
+</span>
+
           </motion.div>
           <motion.div
             className={`text-white flex justify-center items-center relative sm:top-14 md:top-44 z-30 flex-col ${
-              typeof window !== "undefined" && window.outerWidth < 640 ? " top-6" : ""
-            }`}
+              windowwidth< 640 ? " top-6" : ""}`}
             initial={{
               opacity: 0,
               y: 50,
@@ -495,7 +500,7 @@ export function GlobeDemo() {
               duration: 1.5,
             }}
           >
-            <div className={`flex gap-28 ${typeof window !== "undefined" && window.outerWidth < 640 ? "" : ""}`}>
+            <div className={`flex gap-28 ${windowwidth < 640 ? "" : ""}`}>
               <a
                 href="https://github.com/Muhammad-Daniyal-Waseem"
                 target="_blank"
@@ -515,7 +520,7 @@ export function GlobeDemo() {
             </div>
             <div
               className={`flex gap-28 md:mt-10 sm:mt-3 ${
-                typeof window !== "undefined" && window.outerWidth < 640 ? " mt-4" : ""
+                windowwidth < 640 ? " mt-4" : ""
               }`}
             >
               <a
@@ -537,7 +542,7 @@ export function GlobeDemo() {
             </div>
             <div
               className={`flex justify-center w-screen flex-wrap  items-center gap-6 sm:gap-28 md:mt-10 sm:mt-5 ${
-                typeof window !== "undefined" && window.outerWidth < 640 ? " mt-4" : ""
+                windowwidth< 640 ? " mt-4" : ""
               }`}
             >
               <a
@@ -566,14 +571,18 @@ export function GlobeDemo() {
             </div>
           </motion.div>
           <div className="absolute w-full bottom-0 inset-x-0 h-20 bg-gradient-to-b pointer-events-none select-none from-transparent to-black z-30  " />
-          <div className="absolute w-full h-72 md:h-full z-10 bottom-1 ">
-            <World data={sampleArcs} globeConfig={globeConfig} />
+          <div className="absolute w-full h-72 md:h-full z-10 bottom-20 sm:bottom-1 ">
+            <World data={sampleArcs} globeConfig={globeConfig} />;
           </div>
         </div>
       </div>
       <div className="flex justify-center items-center flex-wrap w-screen h-14 bg-blue-700">
-        <p className="text-white text-md md:text-2xl font-bold">
-          &copy; Copyrights {new Date().getFullYear()} Muhammad Daniyal Waseem
+        <p
+          className={`text-wrap text-center tracking-wider  ${
+            windowwidth < 640 ? " text-sm" : ""
+          } sm:text-base md:text-xl text-white font-bold `}
+        >
+          &copy; MUHAMMAD DANIYAL WASEEM . All RIGHTS RESERVED.
         </p>
       </div>
     </>

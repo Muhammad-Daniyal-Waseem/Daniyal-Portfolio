@@ -61,7 +61,7 @@ export const TypewriterEffect = ({
                   {char}
                 </motion.span>
               ))}
-              &nbsp;
+                &nbsp;
             </div>
           );
         })}

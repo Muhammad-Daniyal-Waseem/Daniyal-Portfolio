@@ -83,11 +83,11 @@ const Navbar: React.FC = () => {
       )}
       {isOpen && (
         <motion.aside
-          initial={{ opacity: 0 }}
-          transition={{ duration: 1, ease: "easeInOut" }}
-          animate={{ opacity: 1, ...variants[isOpen ? 'open' : 'closed'] }}
+          initial={{ x: '100%' }}
+          animate={{ x: 0 }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
           id="default-sidebar"
-          className="fixed top-0 right-0 z-50 w-4/12 h-screen transition-transform -translate-x-full sm:translate-x-0 bg-slate-900"
+          className="fixed top-0 right-0 z-50 w-2/5 sm:w-4/12 h-screen bg-slate-900"
           aria-label="Sidebar"
         >
           <div className="flex justify-end w-full">
@@ -103,7 +103,7 @@ const Navbar: React.FC = () => {
             </motion.button>
           </div>
           <div className={`${windows < 650 ? " " : "ml-6 px-3"} h-full py-4 overflow-y-auto`}>
-            <p className={`${windows < 650 ? "ml-1" : "ml-8"} text-xs permanent-marker-regular`} style={{ color: '#818283' }}>NAVIGATION</p>
+            <p className={`${windows < 650 ? "ml-3" : "ml-8"} text-xs permanent-marker-regular`} style={{ color: '#818283' }}>NAVIGATION</p>
             <hr className={`${windows < 650 ? "mt-3 ml-1" : "ml-8 mt-4"}`} style={{ border: 'solid 1px #818283' }} />
             <ul className={`space-y-2 font-normal ${windows > 350 && windows < 640 ? "text-lg" : "text-sm"} mr-4 sm:text-xl mt-8 md:text-3xl lg:text-4xl xl:text-5xl`} style={{ color: '#ffffff' }}>
               <li className="flex">
@@ -161,12 +161,6 @@ const Navbar: React.FC = () => {
                 </a>
               </li>
             </ul>
-            <div className={`${windows < 650 ? "ml-2 mt-8" : "mt-10 ml-8"}`}>
-              <p className="mb-2" style={{ color: '#818283' }}>socials</p>
-              <a href="https://www.linkedin.com/in/daniyal-waseem-039352249" style={{ color: '#fdfdfd' }}>
-                LinkedIn
-              </a>
-            </div>
           </div>
         </motion.aside>
       )}
