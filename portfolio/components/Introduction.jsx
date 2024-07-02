@@ -29,7 +29,7 @@ const Introduction = () => {
             </div>
           </BackgroundGradient>
           <h1 className="md:text-4xl sm:text-2xl lg:text-5xl font-bold text-center text-slate-950 dark:text-neutral-400 relative z-20">
-            <div className=" font-bold text-white mt-5">
+            <div className=" font-bold text-gray-400 mt-5">
               <InfiniteMovingCards
                items={testimonials}
                direction="right"
@@ -37,7 +37,7 @@ const Introduction = () => {
                className='text-center'>
             </InfiniteMovingCards>
             </div>
-            <span className='sm:text-xl  md:text-3xl lg:text-4xl'>I am a passionate </span><br /><FlipWords words={words} /> 
+            <span className='sm:text-xl  md:text-3xl lg:text-4xl text-slate-900 '>I am a passionate </span><br /><FlipWords words={words} className='text-blue-600' /> 
           </h1>
           <div className="w-[40rem] h-40 relative">
             {/* Gradients */}

@@ -96,7 +96,7 @@ export const InfiniteMovingCards = ({
             className=" relative rounded-2xl border border-b-0 flex-shrink-0 border-slate-700"
           >
             <blockquote>
-              <span className=" text-lg sm:text-xl  md:text-3xl lg:text-5xl xl:text-7xl leading-[1.6] text-gray-400 font-bold  text-center  gap-1">
+              <span className=" text-lg sm:text-xl  md:text-3xl lg:text-5xl xl:text-7xl leading-[1.6] text-white font-bold  text-center  gap-1">
                 {item.name}
               </span>
             </blockquote>
