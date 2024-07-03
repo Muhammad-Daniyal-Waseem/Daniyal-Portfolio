@@ -56,7 +56,7 @@ const Project = () => {
     {
       title: "BakeNest",
       dec: "BakeNest, built with React.js, Tailwind CSS, Node.js, and MySQL, is a full-stack website with both admin and customer sides. Customers can check the menu, buy products, place orders, add items to the cart, and access more useful features.",
-      video: "/videos/islam786.mp4",
+      img: "/images/bakenest.PNG",
       tec: [
         { id: 1, name: "React", image: reactLogo },
         { id: 2, name: "NodeJs", image: nodejs },
@@ -78,7 +78,7 @@ const Project = () => {
     {
       title: "eCafé",
       dec: "Online store to order eatables for a local café. Integrated with admin panel. There are different roles in the app like Customer, Admin, Manager, and Clerk with different powers.",
-      video: "/videos/islam786.mp4",
+      img: "/images/eCafe.PNG",
       tec: [
         { id: 1, name: "springboot", image: springboot },
         { id: 2, name: "Java", image: Java },
@@ -99,7 +99,7 @@ const Project = () => {
     {
       title: "Islam786",
       dec: "Islam 786 is a fully responsive website created using React.js and Tailwind CSS. This website integrates various APIs to enhance its functionality.List of 114 Surahs with their text Audio recitation of the Quran Hadith from more than 7 books Prayer times functionality Islamic calendar Compilation of Allah's names.",
-      video: "/videos/islam786.mp4",
+      img: "/images/islam786.PNG",
       tec: [
         { id: 1, name: "React", image: reactLogo },
         { id: 2, name: "RestAPI", image: RestAPI },
@@ -154,17 +154,24 @@ const Project = () => {
               >
                 <div key={index} className="h-fit w-11/12 px-2 mx-auto rounded-lg shadow-white p-2">
                   <section
-                    className="h-fit relative p-2"
+                    className="h-fit  relative p-2"
                     style={{
                       backgroundSize: "400% 400%",
                       backgroundPosition: "99.9995% 50%",
                     }}
                   >
-                    <video
+              <Image
+                src={proj.img}
+                alt="Experience"
+                width={100}
+                height={100}
+                className="w-full h-full rounded-md "
+              />
+                    {/* <video
                       className="w-full object-fill h-full rounded-md"
                     >
                       <source src={proj.video} type="video/mp4" />
-                    </video>
+                    </video> */}
                   </section>
                   <hr />
                   <div className="h-fit text-white space-y-6">

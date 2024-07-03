@@ -448,7 +448,7 @@ export function GlobeDemo() {
         style={iconSize}
       />
 
-      <div className="flex flex-row items-center justify-center pt-20 h-screen md:h-auto dark:bg-black  bg-transparent relative w-full">
+      <div className="flex flex-row items-center justify-center pt-20 h-screen  border-2 md:h-auto  bg-transparent relative w-full">
         <div
           className={`max-w-7xl mx-auto w-full relative overflow-hidden h-full ${
             windowwidth< 640 ? "pt-4" : ""
