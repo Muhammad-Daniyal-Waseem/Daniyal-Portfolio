@@ -102,7 +102,7 @@ const Technology = () => {
 
   return (
     
-    <div  className='target-section' id='Tech'>
+    <div  className='target-section h-fit' id='Tech'>
  <WavyBackground className={`w-full h-full flex text-white flex-col mb-5 sm:mb-14 md:mb-7 justify-center items-center bottom-24 sm:bottom-32 md:bottom-40 xl:bottom-48 ${windowSize<360?"pt-10":""}`}>  
 
     <TypewriterEffect className={`w-fit text-white font-bold inter-var ${windowSize<=400?"mt-0":""}  ${windowSize>400&&windowSize<451?"mt-5":""}`} words={words1}/>      

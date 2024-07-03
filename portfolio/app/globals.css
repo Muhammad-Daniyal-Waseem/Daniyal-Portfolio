@@ -29,6 +29,11 @@ body {
 .shadow-white {
   box-shadow: 0 4px 8px rgb(241, 237, 237);
 }
+
+.shadow-custom {
+  box-shadow: 0 4px 8px rgb(5, 129, 167);
+}
+
 .permanent-marker-regular {
   font-family: "Permanent Marker", cursive;
   font-weight: 400;

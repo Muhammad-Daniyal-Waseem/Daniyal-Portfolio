@@ -52,12 +52,12 @@ export const WavyBackground2 = ({
       canvas = canvasRef.current;
       ctx = canvas.getContext("2d");
       w = ctx.canvas.width = window.outerWidth;
-      h = ctx.canvas.height = window.innerWidth * 0.15; // Set height to 15% of the window's outer width
+      h = ctx.canvas.height = window.innerWidth * 0.17; // Set height to 15% of the window's outer width
       ctx.filter = `blur(${blur}px)`;
       nt = 0;
       window.onresize = function () {
         w = ctx.canvas.width = window.outerWidth;
-        h = ctx.canvas.height = window.innerWidth * 0.15; // Set height to 15% of the window's outer width
+        h = ctx.canvas.height = window.innerWidth * 0.17; // Set height to 15% of the window's outer width
         ctx.filter = `blur(${blur}px)`;
       };
       render();

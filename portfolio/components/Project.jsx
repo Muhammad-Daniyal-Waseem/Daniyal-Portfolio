@@ -98,7 +98,7 @@ const Project = () => {
     },
     {
       title: "Islam786",
-      dec: "Islam 786 is a fully responsive website created using React.js and Tailwind CSS. This website integrates various APIs to enhance its functionality.List of 114 Surahs with their text Audio recitation of the Quran Hadith from more than 7 books Prayer times functionality Islamic calendar Compilation of Allah's names.",
+      dec: "Islam 786 is a fully responsive website created using React.js and Tailwind CSS. This website integrates various APIs to enhance its functionality.List of 114 Surahs with their text Audio , recitation of the Quran Hadith from more than 7 books ,  Prayer times functionality, Islamic calendar ,Compilation of Allah's names.",
       img: "/images/islam786.PNG",
       tec: [
         { id: 1, name: "React", image: reactLogo },
@@ -138,7 +138,7 @@ const Project = () => {
           } w-fit text-white font-bold inter-var ${
             windowSize <= 370 ? "mt-0" : ""
           } ${
-            windowSize > 370 && windowSize < 451 ? "mt-5" : ""
+            windowSize > 370 && windowSize < 451 ? "mt-3" : ""
           }`}
           words={words1}
         />
