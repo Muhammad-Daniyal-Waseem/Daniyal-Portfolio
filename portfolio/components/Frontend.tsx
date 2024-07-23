@@ -71,12 +71,28 @@ const people = [
 ];
 
 const Frontend = () => {
+  
+
 
   const [textSize,settextSize]=useState<string>("");
+  const [height,setheight]=useState<string>("");
   useEffect(() => {
+    
     if(typeof (window) !== "undefined")
       {
     const handleResize = () => {
+      if(window.outerWidth<350)
+        {
+          setheight('h-[340px]')
+        }
+      else if(window.outerWidth<500)
+      {
+        setheight('h-[300px]')
+      }
+      else{
+      setheight('h-[200px] ')
+
+      }
       if (window.outerWidth <= 300) {
         settextSize("text-sm");
         // Handle specific behavior for smaller screens
@@ -92,15 +108,15 @@ const Frontend = () => {
     };}
   }, []);
   return (
-    <Button className="w-full" duration={3100}>
-      <div className={`target-section h-fit w-11/12 py-2 rounded-2xl`}>
-        <div className="h-full relative w-full px-8 py-12 mx-auto 300 overflow-x-hidden bg-slate-900 flex flex-col items-center justify-center rounded-lg">
-          <p className={`${textSize}} mb-7 p-2 sm:p-4 text-blue-950 relative bottom-3 sm:bottom-6 sm:text-xl md:text-2xl lg:text-4xl font-extrabold bg-gradient-to-b rounded-md from-blue-500 to-white opacity-85`}>
+<Button className="w-full" duration={3100}>
+  <div className="target-section h-fit w-11/12 py-2 rounded-2xl">
+    <div className={` ${height} sm:h-[340px] md:h-96 relative w-full px-8 py-12 mx-auto bg-slate-900 flex flex-col items-center justify-center rounded-lg`}>
+      <p className={`${textSize} mb-7 p-2 sm:p-4 text-blue-950 relative bottom-3 sm:bottom-6 sm:text-xl md:text-2xl lg:text-4xl font-extrabold bg-gradient-to-b rounded-md from-blue-500 to-white opacity-85`}>
             Frontend Tech
           </p>
-          <div className="absolute inset-0 w-full h-full bg-black z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
+          <div className="absolute inset-0 w-full  overflow-y-auto  bg-black z-20 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
           <h1 className={cn("md:text-4xl text-xl text-white relative z-20 mx-auto")}>
-            <div className="flex flex-row items-center justify-center w-full mx-auto">
+            <div className="flex flex-row items-center justify-center w-full mx-auto ">
               <AnimatedTooltip items={people} />
             </div>
           </h1>

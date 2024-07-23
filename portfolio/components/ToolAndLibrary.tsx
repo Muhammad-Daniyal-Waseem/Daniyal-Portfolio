@@ -44,10 +44,24 @@ const people = [
 
 const ToolAndLibrary = () => {
   const [textSize,settextSize]=useState<string>("");
+  const [height,setheight]=useState<string>("");
+
   useEffect(() => {
     if(typeof (window) !== "undefined")
       {
     const handleResize = () => {
+      if(window.outerWidth<350)
+        {
+          setheight('h-[250px]');
+        }
+      else if(window.outerWidth<500)
+      {
+        setheight('h-[200px]');
+      }
+      else{
+      setheight('h-[200px] ');
+
+      }
       if (window.outerWidth <= 300) {
         settextSize("text-sm");
         // Handle specific behavior for smaller screens
@@ -65,7 +79,7 @@ const ToolAndLibrary = () => {
   return (
     <Button className="w-full" duration={3100}>
       <div className={`target-section h-fit w-11/12 py-2 rounded-2xl`}>
-        <div className="h-full relative w-full px-8 py-12 mx-auto overflow-x-hidden bg-slate-900 flex flex-col items-center justify-center rounded-lg">
+        <div className={`${height} sm:h-[240px] md:h-72 relative w-full px-8 py-12 mx-auto bg-slate-900 flex flex-col items-center justify-center rounded-lg`}>
           <p className={`${textSize} mb-7 p-2 sm:p-4 text-blue-950 relative bottom-3 sm:bottom-6 sm:text-xl md:text-2xl lg:text-4xl font-extrabold bg-gradient-to-b rounded-md from-blue-500 to-white opacity-85`}>
             Tool/Libs
           </p>

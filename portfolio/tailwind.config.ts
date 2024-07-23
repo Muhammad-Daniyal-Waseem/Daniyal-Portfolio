@@ -9,6 +9,17 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      scrollbar: {
+        width: '1px',
+        track: {
+          background: 'transparent',
+        },
+        thumb: {
+          backgroundColor: '#ccc',
+          borderRadius: '1px',
+          border: '1px solid transparent',
+        },
+      },
 
       height: {
         'custom-height': '40px',  // Example custom height
@@ -110,7 +121,34 @@ black:{
   },
   plugins: [
     addVariablesForColors,
-
+    function ({ addUtilities }) {
+      addUtilities({
+        '.no-scrollbar::-webkit-scrollbar': {
+          display: 'none',
+        },
+        '.no-scrollbar': {
+          '-ms-overflow-style': 'none',  /* IE and Edge */
+          'scrollbar-width': 'none',     /* Firefox */
+        },
+        '.scrollbar': {
+          '::-webkit-scrollbar': {
+            width: '1px',
+          },
+          '::-webkit-scrollbar-track': {
+            background: 'transparent',
+          },
+          '::-webkit-scrollbar-thumb': {
+            backgroundColor: '#ccc',
+            borderRadius: '1px',
+            border: '1px solid transparent',
+          },
+        },
+        '.scrollbar-thin': {
+          'scrollbar-width': 'thin',
+          'scrollbar-color': '#ccc transparent',
+        },
+      });
+    },
   ],
 };
 
