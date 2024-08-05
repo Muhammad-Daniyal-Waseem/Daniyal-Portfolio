@@ -74,6 +74,7 @@ const Project = () => {
         { id: 2, name: "Muhammad Umar", image: Umar, git: umar },
       ],
       code: "https://github.com/Muhammad-Daniyal-Waseem/BakeNest",
+      demo:"",
     },
     {
       title: "eCafé",
@@ -95,6 +96,7 @@ const Project = () => {
         { id: 2, name: "Muhammad Umar", image: Umar, git: umar },
       ],
       code: "https://github.com/Muhammad-Daniyal-Waseem/Ecafe",
+      demo:"",
     },
     {
       title: "Islam786",
@@ -111,6 +113,7 @@ const Project = () => {
       ],
       contributors: [{ id: 1, name: "Muhammad Khizar", image: Khizar, git: khizar }],
       code: "https://github.com/Muhammad-Daniyal-Waseem/Islam786",
+      demo:"https://islam786-omega.vercel.app/",
     },
   ];
 
@@ -193,7 +196,7 @@ const Project = () => {
                       <CodeIcon className="mr-2" />
                       Code
                     </a>
-                    <a href="" target="_blank" className="font-semibold">
+                    <a href={proj.demo} target="_blank" className="font-semibold">
                       <YouTubeIcon className="mr-2" />
                       Demo Video
                     </a>
